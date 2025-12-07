@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    serverActions: { allowedOrigins: ["*"] },
+    turbo: {
+      resolveExtensions: [".js", ".ts", ".tsx", ".jsx"],
+    },
+  },
 };
 
 export default nextConfig;
