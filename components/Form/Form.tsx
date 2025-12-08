@@ -6,6 +6,11 @@ import { RootState, AppDispatch } from "../../redux/store";
 import { useLoginAdminMutation } from "@/redux/api/adminApi";
 import { setLoggedIn } from "@/redux/slices/authSlice";
 import { useSendEmailMutation } from "@/redux/api/mailerApi";
+import {
+  removeCake,
+  updateCake,
+  addNewCake,
+} from "@/redux/slices/cakeDataSlice";
 import Spinner from "../Spinner/Spinner";
 import toast from "react-hot-toast";
 import { closeModal } from "@/redux/slices/modalSlice";
@@ -170,18 +175,21 @@ const Form: React.FC = () => {
           password: password ?? "",
         }).unwrap();
         dispatch(setLoggedIn());
+        dispatch(closeModal());
         toast.success("Dobrodošla, Merisa :)");
         return;
       }
 
       if (isAddMode) {
-        await addCake(formDataObj).unwrap();
+        const newCake = await addCake(formDataObj).unwrap();
+        dispatch(addNewCake(newCake));
         toast.success("Torta uspješno dodata");
       } else if (modalType.selectedCake) {
-        await editCake({
+        const editedCake = await editCake({
           id: modalType.selectedCake.id,
           data: formDataObj,
         }).unwrap();
+        dispatch(updateCake(editedCake));
         toast.success("Torta uspješno uređena");
       }
 

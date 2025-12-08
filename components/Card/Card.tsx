@@ -3,11 +3,11 @@ import Image from "next/image";
 import React, { FC, useRef, useEffect, useCallback } from "react";
 import Modal from "@/components/Modal/Modal";
 import Spinner from "../Spinner/Spinner";
-import Form from "../Form/Form";
 import { CakeType } from "@/app/page";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { RootState, AppDispatch } from "../../redux/store";
 import { cakeDetails, closeModal, cakeEdit } from "@/redux/slices/modalSlice";
+import { removeCake } from "@/redux/slices/cakeDataSlice";
 import { useDeleteCakeMutation } from "@/redux/api/cakeApi";
 import { setLoggedIn, setLoggedOut } from "@/redux/slices/authSlice";
 import { useGetAdminQuery } from "@/redux/api/adminApi";
@@ -36,9 +36,6 @@ const Card: FC<CardProps> = ({ cakeData }) => {
   const { data } = useGetAdminQuery();
 
   const isCakeDetails = modalType.value === "cakeDetails";
-  const isCakeForm = ["cakeAdd", "cakeEdit", "cakeOrder"].includes(
-    modalType.value ?? ""
-  );
 
   const handleBorder = useCallback((hover: boolean) => {
     if (!divRef.current) return;
@@ -121,6 +118,7 @@ const Card: FC<CardProps> = ({ cakeData }) => {
                   id: cakeData.id,
                   sortedBy: JSON.stringify(sortedBy),
                 }).unwrap();
+                dispatch(removeCake(cakeData.id));
                 toast.success("Torta uspješno izbrisana");
               }}
             >
@@ -155,16 +153,6 @@ const Card: FC<CardProps> = ({ cakeData }) => {
             <strong>Opis: </strong>
             {modalType.selectedCake?.description ?? "Description"}
           </p>
-        </Modal>
-      )}
-
-      {isCakeForm && (
-        <Modal
-          isModalOpen={isCakeForm}
-          closeModal={() => dispatch(closeModal())}
-          title={getModalTitle()}
-        >
-          <Form />
         </Modal>
       )}
     </div>

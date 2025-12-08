@@ -50,10 +50,7 @@ export async function PATCH(
       data: updateData,
     });
 
-    const response = NextResponse.json({
-      message: "cake updated successfully",
-      cake: updatedcake,
-    });
+    const response = NextResponse.json(updatedcake);
 
     response.cookies.set("sortedBy", JSON.stringify(sortedBy), {
       ...cookieOptions,
