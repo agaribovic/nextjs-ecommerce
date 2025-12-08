@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -35,8 +37,8 @@ export async function POST(req: NextRequest) {
   const expiresAt = Date.now() + COOKIE_MAX_AGE * 60 * 60 * 1000;
   const expiresIn = expiresAt - Date.now();
 
-  console.log("ADMIN_EMAIL exists:", !!process.env.ADMIN_EMAIL);
-  console.log("ADMIN_PASSWORD_HASH exists:", !!process.env.ADMIN_PASSWORD_HASH);
+  console.log("ADMIN_EMAIL exists:", process.env.ADMIN_EMAIL);
+  console.log("ADMIN_PASSWORD_HASH exists:", process.env.ADMIN_PASSWORD_HASH);
 
   try {
     const { email, password } = await req.json();
