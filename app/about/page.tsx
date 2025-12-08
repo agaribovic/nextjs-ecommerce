@@ -39,7 +39,7 @@ const About: FC = () => {
       <section className="flex flex-col md:flex-row justify-center items-center md:items-stretch max-w-6xl w-full px-6 md:px-10 py-8 gap-8">
         <div className="grid grid-cols-1 md:w-1/2">
           <Image
-            src="/assets/torta.jpg"
+            src="https://lwmchmwtdietfkcnhyab.supabase.co/storage/v1/object/public/cake-images/torta.jpg"
             alt="Torta"
             height={1250}
             width={850}

@@ -41,7 +41,11 @@ const Header: React.FC = () => {
   }, [logoutAdmin, dispatch]);
 
   const linkHref = home ? "/about" : "/";
-  const linkText = home ? "O meni" : <span className="text-4xl">🏠</span>;
+  const linkText = home ? (
+    <span className="hover:text-pink-300 cursor-pointer">O meni</span>
+  ) : (
+    <span className="text-4xl cursor-pointer">🏠</span>
+  );
 
   const gradientTextClass =
     "text-gray-800 bg-gradient-to-r from-[#dbeafe] to-[#fbcfe8] bg-clip-text text-transparent hover:drop-shadow-[0_0_10px_rgba(219,234,254,0.8)] hover:scale-105 transition-all duration-300";
@@ -97,7 +101,7 @@ const Header: React.FC = () => {
         {home && (
           <button
             onClick={() => setOpenMenu(true)}
-            className="xl:hidden text-4xl p-3 text-white ml-auto"
+            className="xl:hidden text-4xl p-3 text-white ml-auto cursor-pointer"
           >
             ☰
           </button>
@@ -120,7 +124,10 @@ const Header: React.FC = () => {
       >
         <div className="p-4 flex justify-between items-center border-b border-gray-700">
           <h2 className="text-lg font-semibold">Meni</h2>
-          <button onClick={() => setOpenMenu(false)} className="text-3xl">
+          <button
+            onClick={() => setOpenMenu(false)}
+            className="text-3xl cursor-pointer"
+          >
             ×
           </button>
         </div>
@@ -140,7 +147,7 @@ const Header: React.FC = () => {
                     dispatch(cakeOrder());
                     setOpenMenu(false);
                   }}
-                  className="w-full text-left hover:text-pink-300"
+                  className="w-full text-left hover:text-pink-300 cursor-pointer"
                 >
                   Naruči tortu 🎂
                 </button>
@@ -152,7 +159,7 @@ const Header: React.FC = () => {
                     dispatch(cakeAdd());
                     setOpenMenu(false);
                   }}
-                  className="hover:text-pink-300"
+                  className="hover:text-pink-300 cursor-pointer"
                 >
                   {isLoggedIn ? "Dodaj tortu 🎂" : "Prijavi se"}
                 </button>
