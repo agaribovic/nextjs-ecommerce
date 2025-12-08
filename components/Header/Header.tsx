@@ -42,7 +42,7 @@ const Header: React.FC = () => {
 
   const linkHref = home ? "/about" : "/";
   const linkText = home ? (
-    <span className="hover:text-pink-300 cursor-pointer">O meni</span>
+    "O meni"
   ) : (
     <span className="text-4xl cursor-pointer">🏠</span>
   );
@@ -133,7 +133,7 @@ const Header: React.FC = () => {
         </div>
 
         <ul className="p-4 space-y-6 text-xl">
-          <li>
+          <li className="hover:text-pink-300">
             <Link href={linkHref} onClick={() => setOpenMenu(false)}>
               {linkText}
             </Link>
