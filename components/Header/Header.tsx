@@ -42,7 +42,7 @@ const Header: React.FC = () => {
 
   const linkHref = home ? "/about" : "/";
   const linkText = home ? (
-    "O meni"
+    "O meni "
   ) : (
     <span className="text-4xl cursor-pointer">🏠</span>
   );
