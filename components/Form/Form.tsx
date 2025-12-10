@@ -213,7 +213,6 @@ const Form: React.FC = () => {
       if (message) toast.error(message);
     } finally {
       setSubmitting(false);
-      //!isLoginMode && 
       dispatch(closeModal());
     }
   };
