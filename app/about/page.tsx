@@ -53,15 +53,15 @@ const About: FC = () => {
           </h2>
           <p className="mb-3 text-justify">
             Zovem se Merisa, i već dugo godina izrađujem torte od papira s puno
-            ljubavi i pažnje na detalje. Sve je počelo kao hobi – a pretvorilo
-            se u prelijepu priču punu boja, mašte i osmijeha. Svaka torta je
-            ručni rad – jedinstvena, vesela i stvorena da obraduje.
+            ljubavi i pažnje na detalje. Sve je počelo kao hobi, a pretvorilo se
+            u prelijepu priču punu boja, mašte i osmijeha. Svaka torta je ručni
+            rad: jedinstvena, vesela i stvorena da obraduje.
           </p>
           <p className="mb-3 text-justify">
             Inspiraciju nalazim u osmijehu onih koji je poklone i prime i
             najveća nagrada za moj rad je kad mi javite da je nekome torta
             izmamila osmijeh. Vjerujem da svaki poklon treba imati dušu, a moje
-            torte upravo to nose – ljubav, pažnju, trud i emociju u svakom sloju
+            torte upravo to nose: ljubav, pažnju, trud i emociju u svakom sloju
             papira.
           </p>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
@@ -74,15 +74,18 @@ const About: FC = () => {
           <br />
           <p className="mb-3 text-justify">
             Izrađujem unikatne papirne torte koje se mogu puniti slatkišima,
-            sitnicama i iznenađenjima — savršene za rođendane, vrtiće, mature,
-            diplome i sve posebne prilike. Svaka torta dolazi s čestitkom i može
-            biti prazna ili puna — po vašoj želji.
+            sitnicama i iznenađenjima, a savršene su za rođendane, vrtiće,
+            mature, diplome i sve posebne prilike. Svaka torta dolazi s
+            čestitkom i može biti prazna ili puna, po vašoj želji.
           </p>
           <br></br>
           <p className="mb-3 text-justify">
-            💝 Poklonite osmijeh uz čaroliju papira! <br /> Za sva pitanja,
-            dodatne informacije (cijene, adresa, kontakt telefon), sugestije
-            slobodno se obratite putem e-mail-a ili FB stranice.
+            <p className="mb-3 text-xl text-center">
+              💝 Poklonite osmijeh uz čaroliju papira!
+            </p>
+            <br /> Za sva pitanja, dodatne informacije (cijene, adresa, kontakt
+            telefon), sugestije slobodno se obratite putem e-mail-a ili FB
+            stranice.
           </p>
         </div>
       </section>

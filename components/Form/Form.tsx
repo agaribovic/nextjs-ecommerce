@@ -7,7 +7,6 @@ import { useLoginAdminMutation } from "@/redux/api/adminApi";
 import { setLoggedIn } from "@/redux/slices/authSlice";
 import { useSendEmailMutation } from "@/redux/api/mailerApi";
 import {
-  removeCake,
   updateCake,
   addNewCake,
 } from "@/redux/slices/cakeDataSlice";
@@ -27,7 +26,6 @@ interface FormData {
   numberOfPieces?: string;
   colorOfPieces?: string;
   delivery?: string;
-  deliveryDetails?: string;
   orderEmail?: string;
   phoneNumber?: string;
   additionalDescription?: string;
@@ -47,7 +45,6 @@ const Form: React.FC = () => {
     numberOfPieces: "",
     colorOfPieces: "",
     delivery: "",
-    deliveryDetails: "",
     orderEmail: "",
     phoneNumber: "",
     additionalDescription: "",
@@ -81,7 +78,6 @@ const Form: React.FC = () => {
     numberOfPieces,
     colorOfPieces,
     delivery,
-    deliveryDetails,
     orderEmail,
     phoneNumber,
     additionalDescription,
@@ -102,7 +98,6 @@ const Form: React.FC = () => {
       !numberOfPieces ||
       !colorOfPieces ||
       !delivery ||
-      !deliveryDetails ||
       !orderEmail ||
       !phoneNumber ||
       !additionalDescription ||
@@ -421,18 +416,6 @@ const Form: React.FC = () => {
                 Osobno preuzimanje (plaćanje gotovinom)
               </option>
             </select>
-          </div>
-
-          <div>
-            <label htmlFor="Delivery Details" className="block">
-              Podaci za dostavu:
-            </label>
-            <textarea
-              className="border rounded p-2 w-full"
-              name="deliveryDetails"
-              onChange={handleChange}
-              value={formData.deliveryDetails}
-            />
           </div>
 
           <div>

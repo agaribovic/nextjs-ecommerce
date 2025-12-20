@@ -11,7 +11,6 @@ export async function POST(req: Request) {
     const numberOfPieces = formData.get("numberOfPieces");
     const colorOfPieces = formData.get("colorOfPieces") as File;
     const delivery = formData.get("delivery") as string;
-    const deliveryDetails = formData.get("deliveryDetails") as string;
     const orderEmail = formData.get("orderEmail") as string;
     const phoneNumber = formData.get("phoneNumber") as string;
     const additionalDescription = formData.get(
@@ -31,7 +30,6 @@ export async function POST(req: Request) {
         <p><strong>Broj komada:</strong> ${numberOfPieces}</p>
         <p><strong>Boja komada:</strong> ${colorOfPieces}</p>
         <p><strong>Preuzimanje:</strong> ${delivery}</p>
-        <p><strong>Podaci za dostavu:</strong> ${deliveryDetails}</p>
         <p><strong>Email:</strong> ${orderEmail}</p>
         <p><strong>Broj telefona:</strong> ${phoneNumber}</p>
         <p><strong>Dodatni opis:</strong> ${additionalDescription}</p>
