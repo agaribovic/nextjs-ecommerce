@@ -6,10 +6,7 @@ import { RootState, AppDispatch } from "../../redux/store";
 import { useLoginAdminMutation } from "@/redux/api/adminApi";
 import { setLoggedIn } from "@/redux/slices/authSlice";
 import { useSendEmailMutation } from "@/redux/api/mailerApi";
-import {
-  updateCake,
-  addNewCake,
-} from "@/redux/slices/cakeDataSlice";
+import { updateCake, addNewCake } from "@/redux/slices/cakeDataSlice";
 import Spinner from "../Spinner/Spinner";
 import toast from "react-hot-toast";
 import { closeModal } from "@/redux/slices/modalSlice";
@@ -138,6 +135,7 @@ const Form: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    let message = "";
 
     try {
       const formDataObj = new FormData();
@@ -203,12 +201,12 @@ const Form: React.FC = () => {
         edit: "Greška u uređivanju torte",
       };
 
-      const message = messages[action];
+      message = messages[action];
 
       if (message) toast.error(message);
     } finally {
       setSubmitting(false);
-      dispatch(closeModal());
+      !message && dispatch(closeModal());
     }
   };
 

@@ -80,9 +80,9 @@ const About: FC = () => {
           </p>
           <br></br>
           <p className="mb-3 text-justify">
-            <p className="mb-3 text-xl text-center">
+            <span className="mb-3 text-xl text-center block">
               💝 Poklonite osmijeh uz čaroliju papira!
-            </p>
+            </span>
             <br /> Za sva pitanja, dodatne informacije (cijene, adresa, kontakt
             telefon), sugestije slobodno se obratite putem e-mail-a ili FB
             stranice.

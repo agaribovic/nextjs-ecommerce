@@ -57,14 +57,6 @@ const Card: FC<CardProps> = ({ cakeData }) => {
     if (isLoggedIn) dispatch(closeModal());
   }, [handleLogoutTimer, isLoggedIn, dispatch]);
 
-  const getModalTitle = () => {
-    if (!isLoggedIn && modalType.value !== "cakeOrder") return "Prijava 🎂";
-    if (modalType.value === "cakeAdd") return "Dodaj 🎂";
-    if (modalType.value === "cakeEdit") return "Uredi 🎂";
-    if (modalType.value === "cakeOrder") return "Naruči 🎂";
-    return "";
-  };
-
   const buttonClass = (bg: string) =>
     ` ${bg} text-gray-700 font-bold px-4 py-2 rounded-lg shadow-md hover:brightness-110 transition h-10 ${
       isLoggedIn ? "w-25 text-sm" : "w-27 text-base"
