@@ -1,11 +1,11 @@
-🍰 Next.js e-Commerce Cake Shop
+### 🍰 Next.js e-Commerce Cake Shop
 
 A modern **e-commerce web application** built with **Next.js, TypeScript, Redux Toolkit, Prisma, and Tailwind CSS.**
 The app allows users to browse cakes, view detailed product pages, and interact with a fully functional backend powered by **Next.js App Router API routes.** An admin section enables cake management and email handling, making the project a complete full-stack showcase.
 
 The project was built with a strong focus on **clean architecture, scalability,** and **real-world patterns** commonly used in production-grade React and Next.js applications.
 
-### 🌐 Live Demo:
+## 🌐 Live Demo:
 👉 https://torteodpapira.vercel.app/
 
 ---
@@ -245,22 +245,15 @@ This project was built to:
 
 ## Future Improvements
 
-**Authentication & Authorization** – Enhance security and session management with JWT/cookies
+ – Enhance security and session management with JWT/cookies
+ – Implement a full-featured cart and smooth checkout experience
+ – Allow users to view and track past orders with detailed information
+ – Add advanced management for cakes, orders, users, and analytics
+ – Support Stripe/PayPal or other payment gateways
+ – Track orders from placement to delivery in real time
+ – Visualize sales, popular items, and user activity with charts
+ – Provide real-time messaging between customers and admins
+ – Optimize media delivery using Next.js Image component
+ – Implement critical flow tests with Playwright or Cypress
 
-**Shopping Cart & Checkout Flow** – Implement a full-featured cart and smooth checkout experience
-
-**Order History** – Allow users to view and track past orders with detailed information
-
-**Admin Dashboard UI** – Add advanced management for cakes, orders, users, and analytics
-
-**Payment Integration** – Support Stripe/PayPal or other payment gateways
-
-**Delivery Tracking & Order Status** – Track orders from placement to delivery in real time
-
-**Statistics & Reporting** – Visualize sales, popular items, and user activity with charts
-
-**Live Chat Support** – Provide real-time messaging between customers and admins
-
-**Image Optimization** – Optimize media delivery using Next.js Image component
-
-**End-to-End Testing** – Implement critical flow tests with Playwright or Cypress
+---
