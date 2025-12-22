@@ -24,18 +24,21 @@ jobs:
       - name: Update README.md
         run: |
           awk '
+          BEGIN { in_block=0 }
           /<!-- START_FOLDER_STRUCTURE -->/ {
             print;
             print "```bash";
             while ((getline line < "structure.txt") > 0) print line;
             print "```";
-            skip=1;
+            in_block=1;
             next
           }
           /<!-- END_FOLDER_STRUCTURE -->/ {
-            skip=0
+            in_block=0;
+            print;
+            next
           }
-          !skip
+          !in_block { print }
           ' README.md > README.tmp
 
           mv README.tmp README.md
