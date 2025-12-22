@@ -2,10 +2,11 @@ name: Update Folder Structure
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  generate-structure:
+  update-folder-structure:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,21 +15,32 @@ jobs:
 
       - name: Generate folder structure
         run: |
-          tree -d -L 5 \
+          tree -L 6 \
+            --dirsfirst \
+            --noreport \
             -I "node_modules|.git|.next|dist|coverage" \
-            --dirsfirst > structure.txt
+            > structure.txt
 
-      - name: Update README
+      - name: Update README.md
         run: |
-          sed -i '/<!-- START_FOLDER_STRUCTURE -->/,/<!-- END_FOLDER_STRUCTURE -->/{
-            /<!-- START_FOLDER_STRUCTURE -->/!{
-              /<!-- END_FOLDER_STRUCTURE -->/!d
-            }
-          }' README.md
+          awk '
+          /<!-- START_FOLDER_STRUCTURE -->/ {
+            print;
+            print "```bash";
+            while ((getline line < "structure.txt") > 0) print line;
+            print "```";
+            skip=1;
+            next
+          }
+          /<!-- END_FOLDER_STRUCTURE -->/ {
+            skip=0
+          }
+          !skip
+          ' README.md > README.tmp
 
-          sed -i '/<!-- START_FOLDER_STRUCTURE -->/r structure.txt' README.md
+          mv README.tmp README.md
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"

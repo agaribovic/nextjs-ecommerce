@@ -1,6 +1,5 @@
 ## Folder Structure
 
-```bash
 <!-- START_FOLDER_STRUCTURE -->
 .
 ├── __tests__
