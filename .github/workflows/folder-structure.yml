@@ -1,0 +1,37 @@
+name: Update Folder Structure
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  generate-structure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate folder structure
+        run: |
+          tree -d -L 5 \
+            -I "node_modules|.git|.next|dist|coverage" \
+            --dirsfirst > structure.txt
+
+      - name: Update README
+        run: |
+          sed -i '/<!-- START_FOLDER_STRUCTURE -->/,/<!-- END_FOLDER_STRUCTURE -->/{
+            /<!-- START_FOLDER_STRUCTURE -->/!{
+              /<!-- END_FOLDER_STRUCTURE -->/!d
+            }
+          }' README.md
+
+          sed -i '/<!-- START_FOLDER_STRUCTURE -->/r structure.txt' README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "chore: auto-update folder structure" || exit 0
+          git push
